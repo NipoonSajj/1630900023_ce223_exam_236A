@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ตรวจฉลากกินแบ่งรัฐบาล</title>
+</head>
+<body>
+    <h1>Delete</h1>
+    <% if(typeof mesg != "undefined") { %>
+        <h2><%= mesg %></h2>
+    <% } %>
+    <a href="/additem">additem</a>
+    <a href="/delete">delete</a>
+    <table id="table">
+        <tr>
+            <th>Select</th>
+            <th>id</th>
+            <th>prize</th>
+            <th>description</th>
+        </tr>
+        <form action="/delete" method="post">
+            <% info.forEach(function(item) { %>
+            <tr>
+                <td><input type="radio" name ="id" value = <%= item.id %></td>
+                <td><%= item.id %></td>
+            <td><%= item.prize %></td>
+            <td><%= item.description %></td>
+                </tr>
+            <% }) %>            
+        
+    </table>
+    <button type="submit">Delete</button>
+        </form>
+</body>
+</html>
